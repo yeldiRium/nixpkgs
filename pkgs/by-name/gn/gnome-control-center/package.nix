@@ -5,6 +5,7 @@
   replaceVars,
   accountsservice,
   adwaita-icon-theme,
+  blueprint-compiler,
   colord,
   colord-gtk4,
   cups,
@@ -42,7 +43,6 @@
   libsecret,
   libsoup_3,
   libwacom,
-  libXi,
   libxml2,
   libxslt,
   meson,
@@ -75,11 +75,11 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "gnome-control-center";
-  version = "48.4";
+  version = "49.rc";
 
   src = fetchurl {
     url = "mirror://gnome/sources/gnome-control-center/${lib.versions.major finalAttrs.version}/gnome-control-center-${finalAttrs.version}.tar.xz";
-    hash = "sha256-KiDu5uBcjTrdru+lJNzh7p+Ip32Djj/R7e88DC5GetI=";
+    hash = "sha256-DL9Y5KD9UVdB83b0NHFd52R9mz2QrwhvksOrt4liIkI=";
   };
 
   patches = [
@@ -91,6 +91,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   nativeBuildInputs = [
+    blueprint-compiler
     docbook-xsl-nons
     gettext
     libxslt
@@ -138,7 +139,6 @@ stdenv.mkDerivation (finalAttrs: {
     libsecret
     libsoup_3
     libwacom
-    libXi
     libxml2
     modemmanager
     mutter # schemas for the keybindings
