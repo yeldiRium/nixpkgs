@@ -19,7 +19,7 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "template-glib";
-  version = "3.37.1";
+  version = "3.38.0";
 
   outputs = [
     "out"
@@ -29,7 +29,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   src = fetchurl {
     url = "mirror://gnome/sources/template-glib/${lib.versions.majorMinor finalAttrs.version}/template-glib-${finalAttrs.version}.tar.xz";
-    hash = "sha256-16xEMdWUe6KSCGx+R7iK6Kzb7A+PjTiyvbiIoL3MBhw=";
+    hash = "sha256-QNANwiPc8ut/LsQi997FpnNzoMoRAavKD0nGLwUMsxI=";
   };
 
   nativeBuildInputs = [
