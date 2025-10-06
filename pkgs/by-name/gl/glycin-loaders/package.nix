@@ -23,11 +23,11 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "glycin-loaders";
-  version = "2.0.rc";
+  version = "2.0.2";
 
   src = fetchurl {
     url = "mirror://gnome/sources/glycin/${lib.versions.majorMinor finalAttrs.version}/glycin-${finalAttrs.version}.tar.xz";
-    hash = "sha256-mkREIVtD1b2YUyW0CK4lC0S4Arb/SeGvCCXXAAi5Zz8=";
+    hash = "sha256-ZYAOhWs37byNXDM1rVNBUFgc4/LwhFTdAwKiZHC9nRM=";
   };
 
   cargoDeps = rustPlatform.fetchCargoVendor {
