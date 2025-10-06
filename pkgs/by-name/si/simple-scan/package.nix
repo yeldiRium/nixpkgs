@@ -26,14 +26,14 @@
 
 stdenv.mkDerivation rec {
   pname = "simple-scan";
-  version = "49.0";
+  version = "49.0.1";
 
   src = fetchFromGitLab {
     domain = "gitlab.gnome.org";
     owner = "GNOME";
     repo = "simple-scan";
     tag = version;
-    hash = "sha256-CZNbw6Ve91bhF5ItsJYOhyUy4CsimXrTLIQBRDhnzFU=";
+    hash = "sha256-YZtTM319mzOjGFIZ6WJYlWGEkrJ8cb+ZT6l9QcSMvOM=";
   };
 
   nativeBuildInputs = [
