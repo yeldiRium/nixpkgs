@@ -67,10 +67,6 @@ stdenv.mkDerivation (finalAttrs: {
     (replaceVars ./absolute_shlib_path.patch {
       inherit nixStoreDir;
     })
-
-    # Fix getter heuristics regression
-    # https://gitlab.gnome.org/GNOME/gobject-introspection/-/merge_requests/529
-    ./0001-scanner-Prefer-some-getters-over-others.patch
   ]
   ++ lib.optionals x11Support [
     # Hardcode the cairo shared library path in the Cairo gir shipped with this package.
