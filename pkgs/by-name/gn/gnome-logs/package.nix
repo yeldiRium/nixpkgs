@@ -2,6 +2,7 @@
   stdenv,
   lib,
   fetchurl,
+  appstream,
   meson,
   ninja,
   pkg-config,
@@ -31,6 +32,7 @@ stdenv.mkDerivation rec {
   };
 
   nativeBuildInputs = [
+    appstream
     meson
     ninja
     pkg-config
