@@ -19,6 +19,8 @@
   pkg-config,
   rustc,
   rustPlatform,
+  common-updater-scripts,
+  _experimental-update-script-combinators,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -77,10 +79,33 @@ stdenv.mkDerivation (finalAttrs: {
   env.CARGO_BUILD_TARGET = stdenv.hostPlatform.rust.rustcTargetSpec;
 
   passthru = {
-    updateScript = gnome.updateScript {
-      attrPath = "glycin-loaders";
-      packageName = "glycin";
-    };
+    updateScript =
+      let
+        updateSource = gnome.updateScript {
+          attrPath = "glycin-loaders";
+          packageName = "glycin";
+        };
+        updateLockfile = {
+          command = [
+            "sh"
+            "-c"
+            ''
+              PATH=${
+                lib.makeBinPath [
+                  common-updater-scripts
+                ]
+              }
+              update-source-version glycin-loaders --ignore-same-version --source-key=cargoDeps.vendorStaging > /dev/null
+            ''
+          ];
+          # Experimental feature: do not copy!
+          supportedFeatures = [ "silent" ];
+        };
+      in
+      _experimental-update-script-combinators.sequence [
+        updateSource
+        updateLockfile
+      ];
   };
 
   meta = with lib; {
