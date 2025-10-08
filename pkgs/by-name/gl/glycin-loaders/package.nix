@@ -35,7 +35,7 @@ stdenv.mkDerivation (finalAttrs: {
   cargoDeps = rustPlatform.fetchCargoVendor {
     inherit (finalAttrs) src;
     name = "glycin-loaders-deps-${finalAttrs.version}";
-    hash = "sha256-omxOAZggqBzMKKg6NP8BnjnGwqIkn0fbOI3Vfwa+j1A=";
+    hash = "sha256-9cpvRNqymxkOi6L5oZDGyvB68rzEt97qB8uqzhUYsao=";
     dontConfigure = true;
   };
 
