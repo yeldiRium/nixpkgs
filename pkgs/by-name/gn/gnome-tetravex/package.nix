@@ -56,7 +56,7 @@ stdenv.mkDerivation rec {
     description = "Complete the puzzle by matching numbered tiles";
     mainProgram = "gnome-tetravex";
     teams = [ teams.gnome ];
-    license = licenses.gpl2;
+    license = licenses.gpl2Plus;
     platforms = platforms.unix;
   };
 }
